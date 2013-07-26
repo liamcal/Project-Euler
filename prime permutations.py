@@ -3,14 +3,15 @@ j = lambda x:(''.join(str(i) for i in x))
 def primes_sieve(limit):
     limitn = limit+1
     not_prime = [False] * limitn
-    primes = []
+    primes = {}
     for i in range(2, limitn):
         if not_prime[i]:
             continue
         for f in range(i*2, limitn, i):
             not_prime[f] = True
-        primes.append(i)
+        primes.add(i)
     return primes
+
 primes = set([p for p in primes_sieve(10000) if p >= 1000])
 l = [sorted(set([int(j(perm)) for perm in(itertools.permutations([int(d) for d in str(p)]))]).intersection(primes))  for p in primes ]
 answers =[]

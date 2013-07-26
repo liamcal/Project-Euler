@@ -69,23 +69,17 @@ def winner(p1,p2):
 	r1 = result(p1)
 	r2 = result(p2)
 	return r1[0] < r2[0] or ( r1[0] == r2[0] and r1[1] > r2[1]) or (r1 == r2 and max(val[card[0]] for card in p1) > max(val[card[0]] for card in p2))
-hands = (open('poker.txt', 'r').read().split('\n'))
+#hands = (open('poker.txt', 'r').read().split('\n'))
 #print(has_pair([['10','k'],['10','h'],['J','h'],['K','h'],['A','c']]))
-wins = 0
-t = 50
-for hand in hands:
-	c = hand.split(' ')
-	p1 = []
-	p2 = []
-	for i in range(5):
-		p1.append(list(c[i]))
-		p2.append(list(c[-(i+1)]))
-	p2.reverse()
-	if t < 50:
-		print(p1,p2)
-		print(result(p1),result(p2))
-		print(winner(p1,p2))
-		t += 1
-	if(winner(p1,p2)):
-		wins += 1
-print(wins)
+hand = input("Enter Cards for each hand: ")
+c = hand.split(' ')
+p1 = []
+p2 = []
+for i in range(5):
+        p1.append(list(c[i]))
+        p2.append(list(c[-(i+1)]))
+p2.reverse()
+print(p1,p2)
+print(result(p1),result(p2))
+print(winner(p1,p2))
+#print(wins)
